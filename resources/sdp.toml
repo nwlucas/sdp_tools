@@ -1,0 +1,9 @@
+# SDP Configuration File
+
+[[watch_dirs]]
+path = ""
+type = "Goals"
+
+[[watch_dirs]]
+path = ""
+type = "Employee"
