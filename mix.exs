@@ -1,4 +1,4 @@
-defmodule Sdp.MixProject do
+defmodule SdpTools.MixProject do
   @moduledoc false
   use Mix.Project
 

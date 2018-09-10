@@ -1,6 +1,6 @@
-defmodule Core do
+defmodule SDP.Goals do
   @moduledoc """
-  Documentation for Core.
+  Documentation for SDP.Goals.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule Core do
 
   ## Examples
 
-      iex> Core.hello()
+      iex> SDP.Goals.hello()
       :world
 
   """
