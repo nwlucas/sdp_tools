@@ -4,6 +4,16 @@ defmodule SDP.Cli do
   """
   @submodule_specs Application.get_env(:sdp, :submodule_specs)
 
+  @doc """
+  Main entry point for the `SDP.Cli`
+
+  It consumes arguments and passes the down to the Optimus library.
+  Any errors and crashes will be handled there and no here.
+
+  Subcommands are registered here in this function though the code
+  for each subcommand lives in their own files and modules.
+  """
+  @spec main(any()) :: no_return()
   def main(argv) do
     Optimus.new!(
       name: "SDP",
