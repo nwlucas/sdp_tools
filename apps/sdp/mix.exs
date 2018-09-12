@@ -1,17 +1,21 @@
-defmodule SDP.Employee.MixProject do
+defmodule SDP.MixProject do
+  @moduledoc false
   use Mix.Project
+
+  @version "0.1.0"
 
   def project do
     [
-      app: :sdp_employee,
-      version: "0.1.0",
+      app: :sdp,
+      version: @version,
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      escript: [main_module: SDP.Cli]
     ]
   end
 
@@ -23,6 +27,8 @@ defmodule SDP.Employee.MixProject do
 
   defp deps do
     [
+      {:cli_spinners, "~> 0.1.0"},
+      {:optimus, "~> 0.1.0"}
     ]
   end
 end

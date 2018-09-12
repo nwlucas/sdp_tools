@@ -15,6 +15,8 @@ defmodule SDP.Cli do
   """
   @spec main(any()) :: no_return()
   def main(argv) do
+    SDP.Application.start(:normal, [])
+
     Optimus.new!(
       name: "SDP",
       description: "Store DCN Processor",
@@ -23,13 +25,14 @@ defmodule SDP.Cli do
       allow_unknown_args: false,
       parse_double_dash: true,
       subcommands: submodules()
-    ) |> Optimus.parse!(argv)
+    )
+    |> Optimus.parse!(argv)
   end
 
-  #Load Submodule specs defined in config `submodule_specs`
+  # Load Submodule specs defined in config `submodule_specs`
   defp submodules do
     @submodule_specs
     |> Enum.map(fn {_, v} -> apply(Module.concat([v, "CmdSpec"]), :spec, []) end)
-    |> List.flatten
+    |> List.flatten()
   end
 end
