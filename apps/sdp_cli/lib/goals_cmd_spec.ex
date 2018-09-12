@@ -1,7 +1,7 @@
 defmodule SDP.Goals.CmdSpec do
-  @moduledoc """
-  Command Spec for `sdp goals` module
-  """
+@moduledoc """
+Command Spec for `sdp goals` module
+"""
 
   def spec do
     {

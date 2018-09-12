@@ -26,6 +26,8 @@ defmodule SDP.MixProject do
 
   defp deps do
     [
+      {:sdp_core, in_umbrella: true},
+      {:cli_spinners, "~> 0.1.0"},
       {:optimus, "~> 0.1.0"}
     ]
   end
