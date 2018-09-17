@@ -1,3 +1,0 @@
-defmodule SDP do
-
-end

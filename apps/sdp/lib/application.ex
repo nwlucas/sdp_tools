@@ -8,7 +8,8 @@ defmodule SDP.Application do
     import Supervisor.Spec, warn: false
 
     children = [
-      worker(SDP.Config, []),
+      worker(SDP.ConfigStore, []),
+      supervisor(SDP.SubSupervisor, [])
     ]
 
     opts = [strategy: :one_for_one, name: SDP.Supervisor]
