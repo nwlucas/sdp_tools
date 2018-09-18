@@ -19,7 +19,7 @@ defmodule SDP.Supervisor do
 
   def init(_opts) do
     children = [
-      SDP.ConfigStore,
+      SDP.Config.Store,
       SDP.SubSupervisor
     ]
 

@@ -1,4 +1,4 @@
-defmodule SDP.ConfigStore do
+defmodule SDP.Config.Store do
   @moduledoc """
   This module is solely a state management module. It reads in the config
   from a file and keeps the it in the state system for the life cycle
