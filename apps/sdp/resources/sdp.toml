@@ -1,7 +1,10 @@
+dcn_dir = "./resources/DCNS"
+generate_bi = true
+
 [[watch_dirs]]
-path = "./goals"
+path = "./resources/goals"
 type = "Goals"
 
 [[watch_dirs]]
-path = "./employees"
+path = "./resources/employees"
 type = "Employees"

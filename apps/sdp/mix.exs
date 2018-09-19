@@ -30,7 +30,8 @@ defmodule SDP.MixProject do
     [
       {:cli_spinners, "~> 0.1.0"},
       {:optimus, "~> 0.1.0"},
-      {:toml, "~> 0.3.0"}
+      {:toml, "~> 0.3.0"},
+      {:file_system, "~> 0.2.6"}
     ]
   end
 end

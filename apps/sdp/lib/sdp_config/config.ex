@@ -14,15 +14,22 @@ defmodule SDP.Config do
   def read_env() do
     Logger.debug("Checking for config file environment variable.")
 
-    conf_file =
-      "SDP_CONFIG"
-      |> System.get_env()
-      |> String.trim()
-      |> Path.expand()
-      |> Path.join(@sdp_conf_file)
+    conf_path = System.get_env("SDP_CONFIG")
 
-    Logger.debug("Conf file path is: #{conf_file}")
-    Application.put_env(:sdp, :sdp_config_file, conf_file)
+    case conf_path do
+      nil ->
+        Application.put_env(:sdp, :sdp_config_file, "")
+
+      "" ->
+        Application.put_env(:sdp, :sdp_config_file, "")
+
+      _ ->
+        Application.put_env(
+          :sdp,
+          :sdp_config_file,
+          Path.join(Path.absname(String.trim(conf_path)), @sdp_conf_file)
+        )
+    end
   end
 
   def load_config() do
@@ -42,6 +49,16 @@ defmodule SDP.Config do
 
   defp default_config() do
     """
+    dcn_dir = "./DCNS"
+    generate_bi = false
+
+    [[watch_dirs]]
+    path = "./goals"
+    type = "Goals"
+
+    [[watch_dirs]]
+    path = "./employees"
+    type = "Employees"
     """
   end
 end

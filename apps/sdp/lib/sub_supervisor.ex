@@ -20,7 +20,13 @@ defmodule SDP.SubSupervisor do
   end
 
   def init(_) do
-    children = []
+    children = [
+      {SDP.File.Watcher, &gather_watch_dirs/0}
+    ]
+
     Supervisor.init(children, strategy: :one_for_one)
+  end
+
+  defp gather_watch_dirs() do
   end
 end
