@@ -1,4 +1,4 @@
-defmodule SDP.File.Watcher do
+defmodule SDP.File.Watcher.Goals do
   @moduledoc """
   Watches directories that are listed in `SDP.Config.Store`
   """

@@ -52,13 +52,11 @@ defmodule SDP.Config do
     dcn_dir = "./DCNS"
     generate_bi = false
 
-    [[watch_dirs]]
+    [[goals_watch_dirs]]
     path = "./goals"
-    type = "Goals"
 
-    [[watch_dirs]]
+    [[employees_watch_dirs]]
     path = "./employees"
-    type = "Employees"
     """
   end
 end

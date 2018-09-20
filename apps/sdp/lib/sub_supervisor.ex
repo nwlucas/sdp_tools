@@ -11,6 +11,8 @@ defmodule SDP.SubSupervisor do
   `SDP.File.Processor`
   `SDP.Aptos.BI`
   """
+  alias SDP.File.Watcher, as: FW
+  alias SDP.Config.Store, as: Store
   require Logger
   use Supervisor
 
@@ -20,13 +22,16 @@ defmodule SDP.SubSupervisor do
   end
 
   def init(_) do
+    gwd = Store.get("goals_watch_dir") |> Path.absname()
+    ewd = Store.get("employees_watch_dir") |> Path.absname()
+
+    Logger.info("Watching #{gwd} for Goals")
+
     children = [
-      {SDP.File.Watcher, &gather_watch_dirs/0}
+      {FW.Goals, [dirs: [gwd], name: :goals_watcher]},
+      {FW.Employees, [dirs: [ewd], name: :employees_watcher]}
     ]
 
     Supervisor.init(children, strategy: :one_for_one)
-  end
-
-  defp gather_watch_dirs() do
   end
 end

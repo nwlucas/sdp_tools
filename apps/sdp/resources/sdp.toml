@@ -1,10 +1,4 @@
 dcn_dir = "./resources/DCNS"
 generate_bi = true
-
-[[watch_dirs]]
-path = "./resources/goals"
-type = "Goals"
-
-[[watch_dirs]]
-path = "./resources/employees"
-type = "Employees"
+goals_watch_dir = "./resources/goals"
+employees_watch_dir = "./resources/employees"
